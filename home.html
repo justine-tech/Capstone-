@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(243, 116, 137);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* Center horizontally */
+            min-height: 80vh;  /* Full height */
+            margin: 0;          /* Remove default margin */
+            font: 20px verdana;
+            color: white;
+            padding: 20px;      /* Added padding for better spacing */
+        }
+
+        #def {
+            background: rgb(252, 151, 167);
+            padding: 30px;
+            border-radius: 20px;
+            display: none;
+            max-width: 90%;
+            margin: 0 auto; /* Centering the box */
+        }
+
+        #def2 {
+            background: rgb(236, 119, 139);
+            padding: 30px; /* Reduced padding for better responsiveness */
+            border-radius: 20px;
+            max-width: 100%; /* Allowing it to be responsive */
+        }
+
+        .heart {
+            font-size: 30px;
+            animation: rose 0.5s infinite;
+        }
+
+        .heart2 {
+            font-size: 25px;
+            animation: rose 1.2s infinite;
+        }
+
+        @keyframes rose {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        button {
+            margin: 5px;
+            background: rgb(214, 101, 120);
+            color: white;
+            padding: 10px 15px; /* Adjusted padding */
+            border-radius: 10px;
+            border: 2px solid rgb(14, 13, 13);
+            font-size: 16px; /* Responsive font size */
+            cursor: pointer; /* Change cursor on hover */
+        }
+
+        button:hover {
+            transform: scale(1.05); /* Slightly scale buttons on hover */
+        }
+
+        #result {
+            border-right: 3px solid black;
+            animation: typing 6s steps(14, end);
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            max-width: 100%; /* Responsive width */
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 120px; /* Adjust as needed for responsive design */
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 18px; /* Smaller font size for mobile */
+            }
+
+            h2 {
+                font-size: 24px; /* Responsive header size */
+            }
+
+            button {
+                padding: 8px 12px; /* Adjust button padding for mobile */
+            }
+
+            #def2 {
+                padding: 20px; /* Responsive padding on mobile */
+            }
+
+            #def {
+                padding: 20px; /* Adjusting padding for mobile view */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 id="title">Happy Valentines Day</h2>
+    <p id="askin">Roses are Red 🌹, <br> Violets are Blue 💙, <br> I have some information 📚, <br> Can you guess the question? ❓</p>
+    <button id="gue" style="padding: 10px;">GUESS </button>
+    <div id="def">
+        <div id="def2">
+            Will you be my valentines? <p class="heart2"> ❤️ </p>
+            <br>
+            <button id="yesc">YES <p class="heart"> 💖 </p></button>
+            <button id="noc">NO <p class="heart"> 💔</p></button>
+            <p id="resultf"></p>
+        </div>
+    </div>
+   
+</body>
+<script>
+    const gue = document.getElementById('gue');
+    const noc = document.getElementById('noc');
+    const yesc = document.getElementById('yesc');
+
+    gue.onclick = function() {
+        document.getElementById("def").style.display = "inline-block";
+        document.getElementById("askin").style.display = "none";
+        this.style.display = "none";
+    }
+
+    noc.onclick = function() {
+        this.style.transform += "scale(0.9)";
+        yesc.style.transform += "scale(1.2)";
+    }
+
+    yesc.onclick = function() {
+        let gg = document.getElementById("resultf");
+        let ilyy = document.createElement('p');
+        ilyy.textContent = "I LOVE YOU";
+        let ily = document.createElement('p');
+        ily.textContent = "ROSE ANN MADOLID";
+        ily.id = "result";
+        gg.appendChild(ilyy);
+        gg.appendChild(ily);
+        this.hidden = true;
+        noc.hidden = true;
+    }
+</script>
+</html>
